@@ -8,8 +8,16 @@
     <link rel="stylesheet" type="text/css" href="">
   </head>
   <body ng-controller="myController">
+    <h2>Curly Brace Binding {{}}</h2>
     <input ng-model="hello" />
     <div>{{hello}}</div>
-    <!-- <div ng-bind-html="hello"></div> -->
+    <hr />
+    <h2>ngSanitize has been included, so we can use ng-bind-html</h2>
+    <input ng-model="hello" />
+    <div ng-bind-html="hello"></div>
+    <hr />
+    <p>
+      <em>Open the console to see the log</em>
+    </p>
   </body>
 </html>
