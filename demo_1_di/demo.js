@@ -7,23 +7,24 @@
 // ngSanitize
 
 
+// var fnc = function( gfdgfd, a ) {
+//   return [a, gfdgfd].join(' ');
+// }
 
-var fnc = function() {
-  var a = "Hello";
-  var b = "World";
-  return [a, b].join(' ');
-}
+// alert(fnc);
 
 // var a = "Hello";
 // var b = "World";
 // alert(fnc(a, b));
 
-// angular.module('app', [])
-//   .controller('myController', function($log, $scope) {
-//     $scope.hello = "Hello from the Scope";
-//     $log.log('hello from the log');
-//   })
-//   .service('myService', function() {})
+angular.module('app', ['myModule'])
+
+angular.module('myModule', [])
+  .controller('myController', function($log, $scope, $http) {
+    $scope.hello = "Hello from the Scope";
+    $log.log('hello from the log');
+  })
+  // .service('myService', function() {})
 
 
 
