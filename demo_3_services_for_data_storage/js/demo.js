@@ -4,18 +4,18 @@ var app = angular.module('app', [])
   })
   .controller('cartController', function($scope, cartService) {
     $scope.items = cartService.items;
-    $scope.addCat = function() {
+    $scope.addCat = () => {
       cartService.addItem({name: 'Cat', price: "4.5"})
     };
-    $scope.addSheep = function() {
+    $scope.addSheep = () => {
       cartService.addItem({name: 'Sheep', price: "19.75"})
     };
   })
 
   .service('cartService', function() {
-    var service = this;
-    service.items = [],
-    service.addItem = function ( item ) {
-      service.items.push( item );
+    var _this = this;
+    this.items = [];
+    this.addItem = ( item ) => {
+      _this.items.push( item );
     }
   });
