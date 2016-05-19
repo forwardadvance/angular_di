@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scope</title>
+    <script src="lib/angular.js"></script>
+    <script src="js/demo.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body ng-app="app" ng-controller="HenchmenController">
+
+    <div>
+      <input ng-model="search.name" placeholder="search by name" />
+      {{search}}
+    </div>
+
+    <div>
+      <select ng-model="sort.value">
+        <option value="name">sort by name</option>
+        <option value="evil">sort by evilness</option>
+      </select>
+      {{sort}}
+      <input type="checkbox" ng-model="sort.reverse" />
+    </div>
+
+    <ol>
+      <li ng-repeat="henchman in henchmen | filter:search | orderBy:sort.value:sort.reverse track by henchman.name">
+        <h2>Name: {{::henchman.name}}</h2>
+        <p>Evil Rating: {{::henchman.evilness}}</p>
+      </li>
+    </ol>
+  </body>
+</html>

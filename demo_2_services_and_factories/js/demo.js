@@ -7,14 +7,23 @@
 // Factories are for generating objects directly
 
 angular.module('app', [])
-  .service('helloService', function() {
-    this.sayHello = function() {
-      alert('hello');
-    };
-    this.sayGoodbye = function() {
-      alert('goodbye');
-    };
+  .value('greeting', {a:123})
+  .factory('greetingFactory', function() {
+    return {a:123}
   })
+  .service('helloService', function() {
+    this.sayHello = () => alert('hello');
+  })
+  .factory('helloFactory', function() {
+    return {
+      sayHello: function() {alert('hello')}
+    }
+  })
+  .controller('demoController', function(greetingFactory, $scope, helloFactory) {
+    $scope.greeting = greetingFactory;
+    helloFactory.sayHello();
+  })
+
 
 
 

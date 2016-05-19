@@ -7,25 +7,22 @@
 // ngSanitize
 
 
-// var fnc = function( gfdgfd, a ) {
-//   return [a, gfdgfd].join(' ');
+// var fnc = function( b, a ) {
+//   return [a, b].join(' ');
 // }
 
-// alert(fnc);
+// var x = "Hello";
+// var y = "World";
+// alert( fnc( y, x ) );
 
-// var a = "Hello";
-// var b = "World";
-// alert(fnc(a, b));
+var controller = function($log, $scope) {
+  $scope.hello = "Hi there";
+  $log.log('hello!');
+};
+controller.$inject = ['$log', '$scope'];
 
-angular.module('app', ['myModule'])
-
-angular.module('myModule', [])
-  .controller('myController', function($log, $scope, $http) {
-    $scope.hello = "Hello from the Scope";
-    $log.log('hello from the log');
-  })
-  // .service('myService', function() {})
-
+angular.module('app', [])
+  .controller('myController', controller);
 
 
 // angular.module('app', [])
@@ -34,15 +31,6 @@ angular.module('myModule', [])
 //     $log.log('hello from the log');
 //   }])
 //   .service('myService', function() {})
-
-// var a = [
-//   "Hello",
-//   "From",
-//   "Angular"
-//   ].join(' ');
-
-// alert(a)
-
 
 
 
@@ -57,8 +45,8 @@ angular.module('myModule', [])
 // Initial State
 
 // var fnc = function() {
-//   a = "Hello";
-//   b = "World";
+//   var a = "Hello";
+//   var b = "World";
 //   return [a, b].join(' ');
 // }
 // alert(fnc);
